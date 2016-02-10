@@ -23,18 +23,18 @@ try {
     exit;
 }
 
-echo 'Logged in as ' . $userNode->getName();
-echo '<br>Logged in as ID: ' . $userNode->getId();
+//echo 'Logged in as ' . $userNode->getName();
+//echo '<br>Logged in as ID: ' . $userNode->getId();
 
 $uname = $userNode->getName();
 $uId = $userNode->getId();
-$responseExtra = $fb->get('/me/photos');
-$userInfo = $responseExtra->getGraphEdge();
+//$responseExtra = $fb->get('/me/photos');
+//$userInfo = $responseExtra->getGraphEdge();
 
 mysql_connect('localhost', 'root', '');
 mysql_select_db('facebook');
 //print_r($userInfo);
-$query = mysql_query("SELECT * FROM users WHERE oauth_provider = 'facebook' AND oauth_uid = ". $uname);
+$query = mysql_query("SELECT * FROM users WHERE oauth_provider = 'facebook' AND oauth_uid = ". $uId);
 if($query) {
     $result = mysql_fetch_array($query);
 }
@@ -59,8 +59,58 @@ if(!empty($user)){
     $_SESSION['username'] = $result['username'];
 }
 
-print_r($_SESSION);
-
-if($_SESSION['facebook_access_token'] == 'CAAXQskXzv2EBAEIomZCet7HAaEWCf1TFwNFWTNEUhx6I3kDGENfSKAvcZBIEZB2gDV1N2f57XyMKbNtze1R2vRcAiRCWdZAowRNS71GmbFEU0bFuEVVl1p3wJZCU43rhtSYrC8MZC5TOOLFIsk1ZCXk4ss62aQAooM1qb3ZAqzZAg7RUoZApJWIZAqgtuvuhB9ck6YZD'){
-    echo 'SameSession';
-}
+//print_r($_SESSION);
+$userFeed = $fb->get('/me/feed');
+//print_r($userFeed);
+?>
+<header>
+    <div class="supHeader">
+        <h1 class="title">JoinSocial</h1>
+        <a href="logout.php?action=logout" >Logout</a>
+    </div>
+</header>
+<body>
+    <div class="content">
+        <section class="socialBox">
+            <div class="publicationCard">
+                <div class="firstRow">
+                    <div class="userInfo">
+                        <p class="uname"><?php echo $uname; ?></p>
+                        <span class="subInfo">publicado a las 11:27</span>
+                    </div>
+                    <div class="publiOptions">
+                        <div class="brandico-facebook-rect socialLogo facebook"></div>
+                        <div class="entypo-down-open moreOptions"></div>
+                    </div>
+                </div>
+                <div class="contentPublished">
+                    <div class="image"></div>
+                    <div class="text"><p>Image is a blank image</p></div>
+                </div>
+                <div class="socialOptions">
+                    <div class="comments"><span class="subInfo">comentarios</span></div>
+                    <div class="fontawesome-thumbs-up likes"></div>
+                </div>
+            </div>
+        </section>
+        <section class="socialBox">
+            <div class="publicationCard">
+                <div class="firstRow">
+                    <div class="userInfo">
+                        <p class="uname">Victor Cappanera</p>
+                        <span class="subInfo">publicado a las 11:27</span>
+                    </div>
+                    <div class="publiOptions">
+                        <div class="brandico-instagram-filled socialLogo insta"></div>
+                        <div class="entypo-down-open moreOptions"></div>
+                    </div>
+                </div>
+                <div class="contentPublished">
+                    <div class="image"></div>
+                    <div class="text"><p>Image is a blank image</p></div>
+                </div>
+                <div class="socialOptions"></div>
+            </div>
+        </section>
+    </div>
+</body>

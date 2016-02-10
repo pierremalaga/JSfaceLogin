@@ -2,7 +2,7 @@
 @import url(http://weloveiconfonts.com/api/?family=brandico);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
-
+/*INDEX STYLE*/
 body, p, h1{
     margin:0;
 }
@@ -75,6 +75,63 @@ body, p, h1{
 .socialOptions .likes{
     margin-left: 12em;
 }
+/*INDEX STYLE END*/
+
+/*LOGIN STYLE*/
+body{
+    margin: 0;
+
+}
+header{
+    background-color: #946EA0;
+}
+@media screen and (max-width: 620px) {
+    header{
+        padding-top: 0.2em;
+        width: 100%;
+    }
+    header .loginTitle{
+        width: 48%;
+        margin: 0 auto;
+        padding: 0.5em;
+    }
+    header .loginTitle h1{
+        text-align: center;
+        color: white;
+        margin: 0;
+    }
+    body .loginButtons{
+        margin: 0 auto;
+    }
+    body .loginButtons .instagramLink{
+        margin-left: 49%;
+    }
+}
+a {
+    text-decoration: none;
+}
+.loginBox{
+    background-color: white;
+    border-radius: 28px;
+    border: 1px solid black;
+    padding: 30px;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 2em;
+    height: 10em;
+}
+.loginButtons{
+    display: flex;
+}
+.loginButtons a .facebookLoginLogo {
+    font-size: 3em;
+    color: #425f9c;
+
+}
+.loginButtons a .instagramLoginLogo{
+    font-size: 3em;
+    color: #8a6d3b;
+}
 /*http://weloveiconfonts.com/*/
 [class*="zocial-"]:before{
     font-family: 'zocial', sans-serif;
@@ -93,13 +150,3 @@ body, p, h1{
 [class*="fontawesome-"]:before {
     font-family: 'FontAwesome', sans-serif;
 }
-.userInfo
-.uname
-.subInfo
-.publiOptions
-.socialLogo
-.moreOptions
-.contentPublished
-.image
-.text
-.socialOptions
