@@ -19,10 +19,4 @@ $fb = new Facebook\Facebook([
 ]);
 
 ?>
-<html DOCTYPE!>
-<head>
-    <link rel="stylesheet" href="style/mainStyle.css"/>
-    <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial"/>
-    <meta charset="utf-8"/>
-</head>
-<body>
+

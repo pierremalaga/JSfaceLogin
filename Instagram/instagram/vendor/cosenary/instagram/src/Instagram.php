@@ -604,4 +604,3 @@ class Instagram {
   }
 
 }
-echo 'hola';
