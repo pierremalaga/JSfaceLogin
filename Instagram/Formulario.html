@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>prueba registro</title>
+</head>
+<body>
+<form method="POST" action="/register.php" accept-charset="utf-8">
+  <label for="signup_email">Email</label>
+  <input type="text" name="signup_email" value="" id="signup_email" maxlength="255" size="30"  />
+  <label for="signup_password">Contraseña</label>
+  <input type="password" name="signup_password" value="" id="signup_password" size="30"  />
+  <label for="sconfirm_password">Confirmar Contraseña</label>
+  <input type="password" name="confirm_password" value="" id="signup_confirm_password" size="30"  />
+                   
+  <input type="checkbox" name="signup_newsletter" value="subscribed" checked="checked"
+                         id="signup_newsletter" class="chk-signup" />
+                  
+  <label for="signup_newsletter" class="txt-signup">Deseo recibir noticias, actualizaciones de
+                            software, y la última información relativa a productos y servicios.
+  </label>
+  <input type="submit" name="signup_submit" value="Registrarse" class="btn">
+</form>
+</body>
+</html>
