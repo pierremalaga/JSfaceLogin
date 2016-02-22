@@ -1,0 +1,142 @@
+#nav span {
+
+    display: none;
+
+}
+
+ 
+
+/* responsive rules */
+
+@media all and (max-width : 980px) {
+
+ 
+
+    /* top level elements */
+
+    #nav  {
+
+        height: auto;
+
+        margin: 0;
+
+        overflow: hidden;
+
+        padding: 0;
+
+        width: 100%;
+
+    }
+
+    #nav li {
+
+        display: inline;
+
+        float: left;
+        height: auto;
+
+        line-height: 40px;
+
+        margin: 0;
+
+        padding: 0;
+
+        position: relative;
+
+        width: 100%;
+
+    }
+
+    #nav > li:after {
+
+        display: none;
+
+    }
+
+    #nav > li > a {
+
+        border-bottom: 1px solid #3B5998;
+
+        height: 40px;
+
+        line-height: 40px;
+
+        margin: 0;
+
+    }
+
+    #nav > li:hover > a, #nav > a:hover {
+
+        margin: 0;
+
+        border-width: 1px;
+
+    }
+
+    #nav > li.subs:hover > a {
+
+        border-radius: 0;
+
+        border-width: 1px;
+
+    }
+
+ 
+
+    /* submenu */
+
+    #nav ul {
+
+        border: 0;
+
+        left: 0;
+
+        margin: 0;
+
+        overflow: hidden;
+
+        padding: 0;
+
+        position: relative;
+
+        top: 0;
+
+    }
+
+    #nav li:hover ul {
+
+        display: none;
+
+    }
+
+    #nav ul li a {
+
+        height: 40px;
+
+        line-height: 40px;
+
+    }
+
+    #nav #s1:target + li > a,
+
+    #nav #s2:target + li > a{
+
+        background-color: #FFFFFF;
+
+        border: 0;
+
+        color: #000000;
+
+        text-shadow: 0 0 transparent;
+
+    }
+
+    #nav #s1:target + li ul,
+
+    #nav #s2:target + li ul {
+
+        display: block;
+
+    }
+
+}
