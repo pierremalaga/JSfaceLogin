@@ -23,7 +23,10 @@ try {
 if (isset($accessToken)) {
     // Logged in!
     $_SESSION['facebook_access_token'] = (string) $accessToken;
-    header('location: http://localhost/facebook/facebookWphp/index.php');
+    $_SESSION['oauth_provider'] = 'facebook';
+    //header('location: http://localhost/facebook/facebookWphp/index.php');
+    header('location: http://localhost/JSfaceLogin/main.php');
+
     //$_accessToken permite redirigir al usuario a cualquiera de nuestras paginas sin salir de la session
     // Now you can redirect to another page and use the
     // access token from $_SESSION['facebook_access_token']
