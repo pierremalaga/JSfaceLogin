@@ -60,57 +60,57 @@ if(!empty($user)){
 }
 
 //print_r($_SESSION);
-$userFeed = $fb->get('/me/feed');
+$userFeedRequest = $fb->get('/me/feed');
+$userFeed = $userFeedRequest->getDecodedBody();
 //print_r($userFeed);
 ?>
-<header>
-    <div class="supHeader">
-        <h1 class="title">JoinSocial</h1>
-        <a href="logout.php?action=logout" >Logout</a>
-    </div>
-</header>
-<body>
+    <header>
+        <div class="supHeader">
+            <h1 class="title">JoinSocial</h1>
+            <a href="logout.php?action=logout" >Logout</a>
+        </div>
+    </header>
+    <body>
     <div class="content">
-        <section class="socialBox">
+<?php
+foreach($userFeed['data'] as $post){
+    $postImageStr = '/'.$post['id'].'/?fields=full_picture,picture,object_id,type,source';
+
+    $postImageRequest = $fb->get($postImageStr);
+    $postImage = $postImageRequest->getDecodedBody();
+    echo '<pre>';
+    print_r($postImage);
+    echo '</pre>';
+
+    /*if($postImage['type'] == 'video'){
+        $videoPost = $fb->get('/'.$postImage['id'].'?fields=embed_html');
+        $postVideo = $videoPost->getDecodedBody();
+        print_r($postVideo);
+    }*/
+
+    echo '<section class="socialBox">
             <div class="publicationCard">
                 <div class="firstRow">
-                    <div class="userInfo">
-                        <p class="uname"><?php echo $uname; ?></p>
-                        <span class="subInfo">publicado a las 11:27</span>
-                    </div>
-                    <div class="publiOptions">
+                    <div class="userInfo">';
+    echo '<p class="uname">'.$uname.'</p>';
+    echo '<span class="subInfo">'.$post['created_time'].'</span></div>';
+    echo '<div class="publiOptions">
                         <div class="brandico-facebook-rect socialLogo facebook"></div>
                         <div class="entypo-down-open moreOptions"></div>
                     </div>
                 </div>
-                <div class="contentPublished">
-                    <div class="image"></div>
-                    <div class="text"><p>Image is a blank image</p></div>
-                </div>
+                <div class="contentPublished">';
+    echo '<div class="text"><p>'.(isset($post['message'])? $post['message'] : $post['story']).'</p></div>';
+    echo '<div class="image"><img src="'.$postImage['full_picture'].'"/></div>';
+    echo '</div>
                 <div class="socialOptions">
                     <div class="comments"><span class="subInfo">comentarios</span></div>
                     <div class="fontawesome-thumbs-up likes"></div>
                 </div>
             </div>
-        </section>
-        <section class="socialBox">
-            <div class="publicationCard">
-                <div class="firstRow">
-                    <div class="userInfo">
-                        <p class="uname">Victor Cappanera</p>
-                        <span class="subInfo">publicado a las 11:27</span>
-                    </div>
-                    <div class="publiOptions">
-                        <div class="brandico-instagram-filled socialLogo insta"></div>
-                        <div class="entypo-down-open moreOptions"></div>
-                    </div>
-                </div>
-                <div class="contentPublished">
-                    <div class="image"></div>
-                    <div class="text"><p>Image is a blank image</p></div>
-                </div>
-                <div class="socialOptions"></div>
-            </div>
-        </section>
-    </div>
+        </section>';
+
+}
+?>
+
 </body>

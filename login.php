@@ -9,7 +9,7 @@
 require 'socialHeaders.php';
 $helper = $fb->getRedirectLoginHelper();
 $permissions = ['email', 'user_friends', 'public_profile']; // optional
-$loginUrl = $helper->getLoginUrl('http://localhost/facebook/facebookWphp/login-callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('http://localhost/JSfaceLogin/facebookWphp/login-callback.php', $permissions);
 $instaLoginUrl = "https://api.instagram.com/oauth/authorize/?client_id=".ClientId."&redirect_uri=".redirectURL."&response_type=code"
 ?>
 <header>
