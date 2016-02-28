@@ -1,5 +1,10 @@
 .menu{
     position: fixed;
-    top: 45px;
+    top: 58px;
     left: 0;
+    width: 17%;
+    margin: 10px;
+}
+.menu input[type="text"]{
+    width: 90%;
 }

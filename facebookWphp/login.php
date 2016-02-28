@@ -8,7 +8,7 @@
 # login.php
 require 'fHeaders.php';
 $helper = $fb->getRedirectLoginHelper();
-$permissions = ['email', 'user_friends', 'public_profile']; // optional
+$permissions = ['email', 'user_friends', 'public_profile', 'publish_action']; // optional
 $loginUrl = $helper->getLoginUrl('http://localhost/facebook/facebookWphp/login-callback.php', $permissions);
 ?>
 <header>

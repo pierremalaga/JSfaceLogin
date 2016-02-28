@@ -3,6 +3,8 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
 /*INDEX STYLE*/
+
+
 header{
     padding-top: 0.2em;
     width: 100%;
@@ -29,14 +31,14 @@ pre{
     padding: 0.12em 0;
 }
 .content{
-    width: 65%;
+    width: 60%;
     margin: 0 auto;
 }
 .publicationCard{
     padding: 11px;
 }
 .publicationCard .firstRow{
-    display: flex;
+    *display: flex;
 }
 .publicationCard .publiOptions{
     display: flex;
@@ -62,8 +64,9 @@ pre{
     width: 86%;
 }
 .publicationCard .publiOptions{
-    width: 14%;
-
+    width: 42px;
+    float: right;
+    margin-top: -32px;
 }
 .publicationCard .userInfo .uname{
     color: #1d4088;
@@ -78,18 +81,19 @@ pre{
     *background-image: url("https://nutrasumma.com/wp-content/uploads/banner-placeholder.jpg");
     *background-size: 18.1em 10em;
     *background-repeat: no-repeat;
-    width: 18.1em;
-    height: 10em;
+    *width: 18.1em;
+    height: 12em;
 }
 .contentPublished .image img{
     width: 100%;
     height: 100%;
 }
 .socialOptions{
-    display: flex;
+    *float: right;
 }
 .socialOptions .likes{
-    margin-left: 12em;
+    float: right;
+    margin-top: -18px;
 }
 /*INDEX STYLE END*/
 
@@ -99,9 +103,13 @@ body{
 
 }
 header{
-    *background-color: #946EA0;
+    background-color: #5C50A5;
 }
-@media screen and (max-width: 620px) {
+.supHeader .title:after{
+    content: 'JoinSocial';
+}
+/* Portrait and Landscape mobile*/
+@media screen and (min-width: 320px) and (max-width: 680px) {
 
     header .loginTitle{
         width: 48%;
@@ -119,7 +127,14 @@ header{
     body .loginButtons .instagramLink{
         margin-left: 49%;
     }
+    .menu{
+        display: none;
+    }
+    .supHeader .title:after{
+        content: 'JS';
+    }
 }
+
 a {
     text-decoration: none;
 }

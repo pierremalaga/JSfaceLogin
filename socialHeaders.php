@@ -30,6 +30,7 @@ require 'facebookWphp/fHeaders.php';
     <link rel="stylesheet" href="styles/menu.css"/>
     <link rel="stylesheet" href="facebookWphp/style/mainStyle.css"/>
     <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial"/>
+    <script src="js/login.js"></script>
     <meta charset="utf-8"/>
 </head>
 <body>

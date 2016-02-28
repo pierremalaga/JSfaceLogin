@@ -9,6 +9,7 @@ include 'accessTokenFacebook.php';
 
 $uname = $userNode->getName();
 $uId = $userNode->getId();
+echo '<input type="hidden" id="uName" value="'.$uname.'"/>';
 $provider = $_SESSION['oauth_provider'];
 
 $mysqli = new mysqli('localhost', 'root', '', 'facebook');
@@ -37,7 +38,7 @@ if(isset($_SESSION['username'])){
 <header>
 
     <div class="supHeader">
-        <h1 class="title">JoinSocial</h1>
+        <h1 class="title"></h1>
         <!--<a href="logout.php?action=logout" >Logout</a>-->
     </div>
     <div class="hidden_supHeader">
@@ -48,9 +49,14 @@ if(isset($_SESSION['username'])){
     <?php
     foreach($userFeed['data'] as $post){
         $postImageStr = '/'.$post['id'].'/?fields=full_picture,picture,object_id,type,source';
+        $postCommentsStr = '/'.$post['id'].'/comments';
 
         $postImageRequest = $fb->get($postImageStr);
         $postImage = $postImageRequest->getDecodedBody();
+
+        $postCommentsRequest = $fb->get($postCommentsStr);
+        $postComments = $postCommentsRequest->getDecodedBody();
+
         echo '<pre>';
         print_r($postImage);
         echo '</pre>';
@@ -61,8 +67,9 @@ if(isset($_SESSION['username'])){
             print_r($postVideo);
         }*/
 
-        echo '<section class="socialBox">
-            <div class="publicationCard">
+        echo '<section class="socialBox">';
+        echo '<input type="hidden" value="'.$post['id'].'" id="postIdField"/>';
+        echo '<div class="publicationCard">
                 <div class="firstRow">
                     <div class="userInfo">';
         echo '<p class="uname">'.$uname.'</p>';
@@ -79,20 +86,24 @@ if(isset($_SESSION['username'])){
                 <div class="socialOptions">
                     <div class="comments"><span class="subInfo">comentarios</span></div>
                     <div class="fontawesome-thumbs-up likes"></div>
-                </div>
-            </div>
+                </div><div class="comments" id="commentsField">';
+        foreach($postComments['data'] as $currentComment){
+            echo '<span>'.$currentComment['from']['name'].' says: </span>';
+            echo '<p>'.$currentComment['message'].'</p>';
+        }
+
+        echo '<input type="text" placeholder="Write a comment..." name="postComment" id="inputPostComment">
+        </div></div>
         </section>';
+        //print_r($postComments['data']);
 
     }
     ?>
     <!--Menu-->
     <div class="menu">
         <form>
-            <fieldset>
-                <legend>JoinSocial</legend>
 
-                <label for="fullname">Buscar</label>
-                <input type="text" id="fullname" />
+                <input type="text" id="fullname" name="searchField" placeholder="Buscar..."/>
                 <p><a href="logout.php?action=logout" >Logout</a></p>
 
                 <p>Redes Sociales</p>
@@ -105,10 +116,11 @@ if(isset($_SESSION['username'])){
                 <p><input type="checkbox" value="CSS3" id="css3" /> <label for="css3">Comentarios</label></p>
                 <p><input type="checkbox" value="HTML5" id="html5" /> <label for="html5">reproducciones</label></p>
 
-            </fieldset>
-
         </form>
-        </div>
+    </div>
+    <footer>
+        <script src="js/facePostFunctions.js"></script>
+    </footer>
 </body>
 <?php
 }
