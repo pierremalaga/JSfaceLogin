@@ -38,7 +38,10 @@ if(isset($_SESSION['username'])){
 <header>
 
     <div class="supHeader">
-        <h1 class="title"></h1>
+        <div id="menuToogle">
+            <span class="fontawesome-reorder logoMenu"></span>
+            <h1 class="title"></h1>
+        </div>
         <!--<a href="logout.php?action=logout" >Logout</a>-->
     </div>
     <div class="hidden_supHeader">
@@ -81,7 +84,7 @@ if(isset($_SESSION['username'])){
                 </div>
                 <div class="contentPublished">';
         echo '<div class="text"><p>'.(isset($post['message'])? $post['message'] : $post['story']).'</p></div>';
-        echo '<div class="image"><img src="'.$postImage['full_picture'].'"/></div>';
+        echo '<div class="image"><i class="playButton"></i><img src="'.$postImage['full_picture'].'"/></div>';
         echo '</div>
                 <div class="socialOptions">
                     <div class="comments"><span class="subInfo">comentarios</span></div>
@@ -100,7 +103,7 @@ if(isset($_SESSION['username'])){
     }
     ?>
     <!--Menu-->
-    <div class="menu">
+    <div class="menu" id="menu">
         <form>
 
                 <input type="text" id="fullname" name="searchField" placeholder="Buscar..."/>
@@ -120,6 +123,8 @@ if(isset($_SESSION['username'])){
     </div>
     <footer>
         <script src="js/facePostFunctions.js"></script>
+        <script src="http://code.jquery.com/jquery-2.2.1.js"></script>
+        <script src="js/menuShownHide.js"></script>
     </footer>
 </body>
 <?php

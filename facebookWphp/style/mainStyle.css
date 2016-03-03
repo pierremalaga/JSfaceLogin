@@ -105,8 +105,14 @@ body{
 header{
     background-color: #5C50A5;
 }
+.supHeader .title{
+    margin-left: 8px;
+}
 .supHeader .title:after{
     content: 'JoinSocial';
+}
+.supHeader .logoMenu{
+    display: none;
 }
 /* Portrait and Landscape mobile*/
 @media screen and (min-width: 320px) and (max-width: 680px) {
@@ -132,6 +138,25 @@ header{
     }
     .supHeader .title:after{
         content: 'JS';
+    }
+    .supHeader .title{
+        display: inline;
+        font-size: 2.6em;
+        margin-left: 0;
+    }
+    .supHeader .logoMenu{
+        display: inline;
+        font-size: 2.6em;
+        color: white;
+        margin-left: 8px;
+    }
+    .supHeader #menuToogle:hover{
+        cursor: pointer;
+    }
+    .hideMenu{
+        display: block;
+        width: 30%;
+        background-color: white;
     }
 }
 
@@ -160,6 +185,21 @@ a {
     font-size: 3em;
     color: #8a6d3b;
 }
+
+.playButton{
+    background-image: url('https://static.xx.fbcdn.net/rsrc.php/v2/y2/r/wlLiOn9CAwM.png');
+    background-repeat: no-repeat;
+    background-size: 73px 245px;
+    background-position: 0 0;
+    cursor: pointer;
+    height: 72px;
+    left: 50%;
+    margin: -36px 0 0 -36px;
+    position: absolute;
+    top: 50%;
+    width: 72px;
+}
+
 /*http://weloveiconfonts.com/*/
 [class*="zocial-"]:before{
     font-family: 'zocial', sans-serif;
