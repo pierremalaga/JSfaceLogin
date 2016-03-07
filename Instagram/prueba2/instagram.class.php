@@ -7,13 +7,13 @@ const ACCESS_TOKEN_URL = 'https://api.instagram.com/oauth/access_token';
 const API_URL = 'https://api.instagram.com/v1/';
 // clave de acceso
 private $_apikey;
-define("client_id", '41f65a5c684048bca797dbf0775c9ec7');
+
 // constraseña de acceso
 private $_apisecret;
-define("ClientSECRET", '95647e6ef2a445ff92e8b27c82bf8da6');
+
 // url de callback
 private $_callbackurl;
-define("redirect_uri", 'http://localhost:80/Instagram/instagram.php');
+
 private $_access_token;
 // el tipo de acceso server-side (code) o client-side (token)
 private $_codeType;
@@ -61,6 +61,7 @@ $metodoAuth = '?client_id='.$this->getApiKey();
 // si necesita autenticacion
 if (true === isset($this->_access_token)) {
 $metodoAuth = '?access_token='.$this->getAccessToken();
+
 } else {
 throw new Exception("Error: $url - Se necesita autenticacion.");
 }

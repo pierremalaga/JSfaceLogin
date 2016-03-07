@@ -24,15 +24,17 @@ if($query->num_rows){
         $_SESSION['oauth_uid'] = $user->oauth_uid;
         $_SESSION['oauth_provider'] = $user->oauth_provider;
         $_SESSION['username'] = $user->username;
-        $_SESSION['email'] = $user->username;
+        $_SESSION['email'] = $user->email;
     }
 }else{
     header('Location: http://localhost/JSfaceLogin/register.php');
 }
+
 if(isset($_SESSION['username'])){
 
     $userFeedRequest = $fb->get('/me/feed?limit=5');
     $userFeed = $userFeedRequest->getDecodedBody();
+
 ?>
 <header>
 
@@ -46,14 +48,15 @@ if(isset($_SESSION['username'])){
 <body>
 <div class="content">
     <?php
+
     foreach($userFeed['data'] as $post){
         $postImageStr = '/'.$post['id'].'/?fields=full_picture,picture,object_id,type,source';
 
         $postImageRequest = $fb->get($postImageStr);
         $postImage = $postImageRequest->getDecodedBody();
-        echo '<pre>';
-        print_r($postImage);
-        echo '</pre>';
+        //echo '<pre>';
+        //print_r($postImage);
+        //echo '</pre>';
 
         /*if($postImage['type'] == 'video'){
             $videoPost = $fb->get('/'.$postImage['id'].'?fields=embed_html');

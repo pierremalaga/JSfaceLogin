@@ -71,7 +71,7 @@ class Instagram {
    *
    * @var array
    */
-  private $_scopes = array('basic', 'likes', 'comments', 'relationships');
+  private $_scopes = array('basic', 'likes', 'comments', 'relationships', 'public_content','comments','follower_list','likes','relationships');
 
   /**
    * Available actions
@@ -106,8 +106,9 @@ class Instagram {
    * @param array [optional] $scope       Requesting additional permissions
    * @return string                       Instagram OAuth login URL
    */
-  public function getLoginUrl($scope = array('basic')) {
+  public function getLoginUrl($scope = array('basic', 'public_content','comments','follower_list','likes','relationships')) {
     if (is_array($scope) && count(array_intersect($scope, $this->_scopes)) === count($scope)) {
+      echo self::API_OAUTH_URL . '?client_id=' . $this->getApiKey() . '&redirect_uri=' . urlencode($this->getApiCallback()) . '&scope=' . implode('+', $scope) . '&response_type=code';
       return self::API_OAUTH_URL . '?client_id=' . $this->getApiKey() . '&redirect_uri=' . urlencode($this->getApiCallback()) . '&scope=' . implode('+', $scope) . '&response_type=code';
     } else {
       throw new \Exception("Error: getLoginUrl() - The parameter isn't an array or invalid scope permissions used.");
@@ -430,6 +431,7 @@ class Instagram {
    * @return mixed
    */
   protected function _makeCall($function, $auth = false, $params = null, $method = 'GET') {
+
     if (false === $auth) {
       // if the call doesn't requires authentication
       $authMethod = '?client_id=' . $this->getApiKey();
@@ -437,6 +439,7 @@ class Instagram {
       // if the call needs an authenticated user
       if (true === isset($this->_accesstoken)) {
         $authMethod = '?access_token=' . $this->getAccessToken();
+
       } else {
         throw new \Exception("Error: _makeCall() | $function - This method requires an authenticated users access token.");
       }
