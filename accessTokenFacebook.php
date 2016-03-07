@@ -5,7 +5,8 @@
  * Date: 22/02/2016
  * Time: 17:31
  */
-include 'socialHeaders.php';
+
+require 'facebookWphp/fHeaders.php';
 $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
 
 try {
