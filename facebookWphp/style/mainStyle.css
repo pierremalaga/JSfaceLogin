@@ -3,6 +3,8 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
 /*INDEX STYLE*/
+
+
 header{
     padding-top: 0.2em;
     width: 100%;
@@ -29,14 +31,61 @@ pre{
     padding: 0.12em 0;
 }
 .content{
-    width: 65%;
+    width: 60%;
     margin: 0 auto;
+}
+.content .socialBox{
+    border: thin solid black;
+}
+.commentsField{
+    *border: thin solid black;
+
+    border-bottom: none;
+}
+.singleCommentBox{
+    border: thin solid black;
+    border-bottom: none;
+}
+.singleCommentBox:last-child{
+    border-bottom: thin solid black;
+}
+.commentsField #inputPostComment{
+    width: 85%;
+}
+.commentsField .sendPostComment{
+    color: white;
+    background-color: #5c50a5;
+    border-radius: 6px;
+    width: 13%;
+    border: none;
+}
+#sendPost{
+    color: white;
+    background-color: #5c50a5;
+    border-radius: 6px;
+    width: 20%;
+    border: none;
+    margin-left: 70%;
+}
+#uploadPicture{
+    margin-left: 10px;
+}
+.upictPublication{
+    float: left;
 }
 .publicationCard{
     padding: 11px;
+    padding-bottom: 0;
+
+}
+.sendPublicationCard{
+    height: 52px;
+    padding: 11px;
+    padding-bottom: 0;
+
 }
 .publicationCard .firstRow{
-    display: flex;
+    *display: flex;
 }
 .publicationCard .publiOptions{
     display: flex;
@@ -62,8 +111,9 @@ pre{
     width: 86%;
 }
 .publicationCard .publiOptions{
-    width: 14%;
-
+    width: 42px;
+    float: right;
+    margin-top: -32px;
 }
 .publicationCard .userInfo .uname{
     color: #1d4088;
@@ -72,24 +122,39 @@ pre{
     color: #6a7180;
     font-size: 0.7em;
 }
-
-
+.socialPublicationBox{
+    padding: 13px;
+    padding-bottom: 35px;
+    border: thin solid black;
+}
+.socialPublicationBox #inputPublication{
+    width: 75%;
+    margin-left: 10px;
+}
+.contentPublished{
+    margin-top: 20px;
+}
 .contentPublished .image{
     *background-image: url("https://nutrasumma.com/wp-content/uploads/banner-placeholder.jpg");
     *background-size: 18.1em 10em;
     *background-repeat: no-repeat;
-    width: 18.1em;
-    height: 10em;
+    *width: 18.1em;
+    *height: 12em;
+}
+.contentPublished .image img,
+.contentPublished .videoPost video{
+    width: 100%;
 }
 .contentPublished .image img{
-    width: 100%;
-    height: 100%;
+    *height: 100%;
 }
-.socialOptions{
-    display: flex;
+.socialOptionsPublication{
+    display: inline-flex;
+    width: 100%;
 }
 .socialOptions .likes{
-    margin-left: 12em;
+    float: right;
+    margin-top: -18px;
 }
 /*INDEX STYLE END*/
 
@@ -99,9 +164,19 @@ body{
 
 }
 header{
-    *background-color: #946EA0;
+    background-color: #5C50A5;
 }
-@media screen and (max-width: 620px) {
+.supHeader .title{
+    margin-left: 8px;
+}
+.supHeader .title:after{
+    content: 'JoinSocial';
+}
+.supHeader .logoMenu{
+    display: none;
+}
+/* Portrait and Landscape mobile*/
+@media screen and (min-width: 320px) and (max-width: 680px) {
 
     header .loginTitle{
         width: 48%;
@@ -119,7 +194,36 @@ header{
     body .loginButtons .instagramLink{
         margin-left: 49%;
     }
+    .menu{
+        display: none;
+    }
+    .supHeader .title:after{
+        content: 'JS';
+    }
+    .supHeader .title{
+        display: inline;
+        font-size: 2.6em;
+        margin-left: 0;
+    }
+    .supHeader .logoMenu{
+        display: inline;
+        font-size: 2.6em;
+        color: white;
+        margin-left: 8px;
+    }
+    .supHeader #menuToogle:hover{
+        cursor: pointer;
+    }
+    .hideMenu{
+        display: block;
+        width: 30%;
+        background-color: white;
+    }
+    .socialPublicationBox #inputPublication{
+        width: 55%;
+    }
 }
+
 a {
     text-decoration: none;
 }
@@ -144,6 +248,27 @@ a {
 .loginButtons a .instagramLoginLogo{
     font-size: 3em;
     color: #8a6d3b;
+}
+
+.playButton{
+    background-image: url('https://static.xx.fbcdn.net/rsrc.php/v2/y2/r/wlLiOn9CAwM.png');
+    background-repeat: no-repeat;
+    background-size: 73px 245px;
+    background-position: 0 0;
+    cursor: pointer;
+    height: 72px;
+    left: 50%;
+    margin: -36px 0 0 -36px;
+    position: absolute;
+    top: 50%;
+    width: 72px;
+}
+.text{
+    padding: 7px;
+    padding-left: 0;
+}
+section {
+    margin-bottom: 15px;
 }
 /*http://weloveiconfonts.com/*/
 [class*="zocial-"]:before{
