@@ -34,8 +34,55 @@ pre{
     width: 60%;
     margin: 0 auto;
 }
+.content .socialBox{
+    border: thin solid black;
+}
+.commentsField{
+    *border: thin solid black;
+
+    border-bottom: none;
+}
+.singleCommentBox{
+    border: thin solid black;
+    border-bottom: none;
+}
+.singleCommentBox:last-child{
+    border-bottom: thin solid black;
+}
+.commentsField #inputPostComment{
+    width: 85%;
+}
+.commentsField .sendPostComment{
+    color: white;
+    background-color: #5c50a5;
+    border-radius: 6px;
+    width: 13%;
+    border: none;
+}
+#sendPost{
+    color: white;
+    background-color: #5c50a5;
+    border-radius: 6px;
+    width: 20%;
+    border: none;
+    margin-left: 70%;
+}
+#uploadPicture{
+    margin-left: 10px;
+}
+.upictPublication{
+    float: left;
+}
 .publicationCard{
     padding: 11px;
+    padding-bottom: 0;
+
+}
+.sendPublicationCard{
+    height: 52px;
+    padding: 11px;
+    padding-bottom: 0;
+
 }
 .publicationCard .firstRow{
     *display: flex;
@@ -75,21 +122,35 @@ pre{
     color: #6a7180;
     font-size: 0.7em;
 }
-
-
+.socialPublicationBox{
+    padding: 13px;
+    padding-bottom: 35px;
+    border: thin solid black;
+}
+.socialPublicationBox #inputPublication{
+    width: 75%;
+    margin-left: 10px;
+}
+.contentPublished{
+    margin-top: 20px;
+}
 .contentPublished .image{
     *background-image: url("https://nutrasumma.com/wp-content/uploads/banner-placeholder.jpg");
     *background-size: 18.1em 10em;
     *background-repeat: no-repeat;
     *width: 18.1em;
-    height: 12em;
+    *height: 12em;
+}
+.contentPublished .image img,
+.contentPublished .videoPost video{
+    width: 100%;
 }
 .contentPublished .image img{
-    width: 100%;
-    height: 100%;
+    *height: 100%;
 }
-.socialOptions{
-    *float: right;
+.socialOptionsPublication{
+    display: inline-flex;
+    width: 100%;
 }
 .socialOptions .likes{
     float: right;
@@ -158,6 +219,9 @@ header{
         width: 30%;
         background-color: white;
     }
+    .socialPublicationBox #inputPublication{
+        width: 55%;
+    }
 }
 
 a {
@@ -199,7 +263,13 @@ a {
     top: 50%;
     width: 72px;
 }
-
+.text{
+    padding: 7px;
+    padding-left: 0;
+}
+section {
+    margin-bottom: 15px;
+}
 /*http://weloveiconfonts.com/*/
 [class*="zocial-"]:before{
     font-family: 'zocial', sans-serif;

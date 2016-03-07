@@ -21,8 +21,7 @@ $insta = new Instagram(array(
 ));
 
 /* Facebook Headers */
-require 'facebookWphp/fHeaders.php';
-
+require 'accessTokenFacebook.php';
 ?>
 <!-- HTML Header -->
 <html DOCTYPE!>
@@ -31,6 +30,16 @@ require 'facebookWphp/fHeaders.php';
     <link rel="stylesheet" href="facebookWphp/style/mainStyle.css"/>
     <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=zocial"/>
     <script src="js/login.js"></script>
+    <script src="js/facePostFunctions.js"></script>
+    <script>
+        function playVideo(video) {
+            if (video.paused == true) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    </script>
     <meta charset="utf-8"/>
 </head>
 <body>
